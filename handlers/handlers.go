@@ -14,11 +14,9 @@ import (
 /* Manejadores seteo mi puerto el handler y pongo a escuchar al servidor*/
 func Manejadores() {
 
-	route := mux.NewRouter()
+	router := mux.NewRouter()
 
-	router.HandleFunc("/registro",middleware.ChequeoBD(routers.Registro)).Methods("POST")
-
-
+	router.HandleFunc("/registro", middleware.ChequeoBD(routers.Registro)).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 
@@ -26,7 +24,7 @@ func Manejadores() {
 		PORT = "8080"
 	}
 
-	handler := cors.AllowAll().Handler(route)
+	handler := cors.AllowAll().Handler(router)
 	log.Fatal(http.ListenAndServe(":"+PORT, handler))
 
 }
