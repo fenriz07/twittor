@@ -31,7 +31,7 @@ func conectarBD() *mongo.Client {
 
 }
 
-/* ChequeoConnection Comprueba la conexión*/
+/*ChequeoConnection Comprueba la conexión*/
 func ChequeoConnection() int {
 	err := MongoCN.Ping(context.TODO(), nil)
 
