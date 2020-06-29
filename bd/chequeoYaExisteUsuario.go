@@ -8,6 +8,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
+/*ChequeoYaExisteUsuario comprueba si el usuario esta en bd */
 func ChequeoYaExisteUsuario(email string) (models.Usuario, bool, string) {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
